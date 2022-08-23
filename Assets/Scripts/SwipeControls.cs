@@ -46,9 +46,10 @@ public class SwipeControls : MonoBehaviour
         // distance of swipe > threshold, then carry out the swipe
         if (distanceM.x > swipeThreshold || distanceM.y > swipeThreshold)
         {
+            print("sadness");
             isSwipe = true;
             MovePlayer(distanceM);
-            Reset();
+            //Reset();
         }
 
         // TOUCH SWIPE CONTROL
@@ -56,6 +57,8 @@ public class SwipeControls : MonoBehaviour
         {
             Touch currentTouch = Input.GetTouch(0); // get touch
 
+            //TouchPhase.Moved
+                //currentTouch.deltaPosition
             // if user started to touch
             if (currentTouch.phase == TouchPhase.Began)
             {
@@ -88,11 +91,12 @@ public class SwipeControls : MonoBehaviour
 
     }
 
-    private void Reset()
+    public void Reset()
     {
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
         isSwipe = false;
+        MoveForward = MoveBackward = MoveLeft = MoveRight = false;
     }
 
     void MovePlayer(Vector2 direction)
@@ -128,6 +132,6 @@ public class SwipeControls : MonoBehaviour
                 MoveBackward = true;
             }
         }
-        Reset();
+        //Reset();
     }
 }

@@ -53,8 +53,9 @@ public class PlayerMovement : MonoBehaviour
 
         if(controls.MoveForward)
         {
+            print("hello");
             // rotation if currentRotation != Foward_Rotation
-            if(currentRotation != FORWARD_ROTATION)
+            if (currentRotation != FORWARD_ROTATION)
             {
                 playerTransform.transform.eulerAngles = FORWARD_ROTATION;
             }
@@ -69,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             }
             desiredPosition += Vector3.back;
         }
-        if (controls.MoveRight)
+       if (controls.MoveRight)
         {
             // rotation if currentRotation != Right_Rotation
             if (currentRotation != RIGHT_ROTATION)
@@ -90,6 +91,6 @@ public class PlayerMovement : MonoBehaviour
         }
         // move
         playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, desiredPosition, 3f * Time.deltaTime);
-
+        controls.Reset();
     }
 }
