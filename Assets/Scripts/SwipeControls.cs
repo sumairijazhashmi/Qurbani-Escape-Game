@@ -121,17 +121,17 @@ public class SwipeControls : MonoBehaviour
             }
         }
         // else move up/don
-        else if(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
-        {
-            if(direction.y > 0)
-            {
-                MoveForward = true;
-            }
-            else
-            {
-                MoveBackward = true;
-            }
-        }
+        //else if(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
+        //{
+        //    if(direction.y > 0)
+        //    {
+        //        MoveForward = true;
+        //    }
+        //    else
+        //    {
+        //        MoveBackward = true;
+        //    }
+        //}
         //Reset();
     }
 }
