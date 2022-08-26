@@ -18,21 +18,21 @@ public class PlayerMovement : MonoBehaviour
         characterController = gameObject.GetComponent<CharacterController>();
     }
 
-    private Vector3 FORWARD_ROTATION
-    {
-        get
-        {
-            return new Vector3(0, 192.537f, 0); 
-        }
-    }
+    //private Vector3 FORWARD_ROTATION
+    //{
+    //    get
+    //    {
+    //        return new Vector3(0, 192.537f, 0); 
+    //    }
+    //}
 
-    private Vector3 BACKWARD_ROTATION
-    {
-        get
-        {
-            return new Vector3(0, 372.537f, 0);
-        }
-    }
+    //private Vector3 BACKWARD_ROTATION
+    //{
+    //    get
+    //    {
+    //        return new Vector3(0, 372.537f, 0);
+    //    }
+    //}
 
     private Vector3 RIGHT_ROTATION
     {
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         get
         {
-            return new Vector3(0, -90, 0);
+            return new Vector3(0, 270f, 0);
         }
     }
 
@@ -58,26 +58,26 @@ public class PlayerMovement : MonoBehaviour
         // get current rotation
         Vector3 currentRotation = playerTransform.transform.rotation.eulerAngles;
 
-        if(controls.MoveForward)
-        {
-            print("hello");
-            // rotation if currentRotation != Foward_Rotation
-            if (currentRotation != FORWARD_ROTATION)
-            {
-                playerTransform.transform.eulerAngles = FORWARD_ROTATION;
+        //if(controls.MoveForward)
+        //{
+            
+        //    // rotation if currentRotation != Foward_Rotation
+        //    if (currentRotation != FORWARD_ROTATION)
+        //    {
+        //        playerTransform.transform.eulerAngles = FORWARD_ROTATION;
 
-            }
-            //desiredPosition += Vector3.forward; // youtube video
-        }   
-        if(controls.MoveBackward)
-        {
-            // rotation if currentRotation != Backward_Rotation
-            if (currentRotation != BACKWARD_ROTATION)
-            {
-                playerTransform.transform.eulerAngles = BACKWARD_ROTATION;
-            }
-            //desiredPosition += Vector3.back;
-        }
+        //    }
+        //    //desiredPosition += Vector3.forward; // youtube video
+        //}   
+        //if(controls.MoveBackward)
+        //{
+        //    // rotation if currentRotation != Backward_Rotation
+        //    if (currentRotation != BACKWARD_ROTATION)
+        //    {
+        //        playerTransform.transform.eulerAngles = BACKWARD_ROTATION;
+        //    }
+        //    //desiredPosition += Vector3.back;
+        //}
        if (controls.MoveRight)
         {
             // rotation if currentRotation != Right_Rotation

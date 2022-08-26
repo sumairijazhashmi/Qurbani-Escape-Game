@@ -1,30 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public class SwipeControls : MonoBehaviour
 {
-    // basic idea taken from Unity forums/youtube videos
-    
-    
-
-  
-  
-    
-    // else move up/down
-
-   
-    private Vector2 startPosition;
+    private Vector2 startPosition = Vector2.zero;
     private Vector2 endPosition;
     private bool isSwipe;
     private float swipeThreshold;
-    public bool MoveLeft, MoveRight, MoveForward, MoveBackward;
+    public bool MoveLeft, MoveRight;
 
     private void Start()
     {
         swipeThreshold = Screen.height * (20 / 100); // 20% of the screen height  
         isSwipe = false;
-        MoveBackward = MoveForward = MoveLeft = MoveRight = false;
+        MoveLeft = MoveRight = false;
     }
 
     // Update is called once per frame
@@ -46,7 +38,7 @@ public class SwipeControls : MonoBehaviour
         // distance of swipe > threshold, then carry out the swipe
         if (distanceM.x > swipeThreshold || distanceM.y > swipeThreshold)
         {
-            print("sadness");
+            //print("sadness");
             isSwipe = true;
             MovePlayer(distanceM);
             //Reset();
@@ -70,25 +62,21 @@ public class SwipeControls : MonoBehaviour
             if (currentTouch.phase == TouchPhase.Ended)
             {
                 isSwipe = false;
-                endPosition = currentTouch.position;
-            }
-
-            // if user has ended touch
-            if (currentTouch.phase == TouchPhase.Ended)
-            {
                 endPosition = currentTouch.position; // update end pos
-                Vector2 distanceT = endPosition - startPosition;
-                // distance of swipe > threshold, then carry out the swipe
-                if (distanceT.x > swipeThreshold || distanceT.y > swipeThreshold)
-                {
-                    isSwipe = true;
-                    MovePlayer(distanceT);
-                    isSwipe = false;
-                }
+
             }
+                
+            Vector2 distanceT = endPosition - startPosition;
+            // distance of swipe > threshold, then carry out the swipe
+            if (distanceT.x > swipeThreshold || distanceT.y > swipeThreshold)
+            {
+                isSwipe = true;
+                Debug.Log("x: " + distanceT.x + "; y: " + distanceT.y);
+                MovePlayer(distanceT);
+            }
+           
         }
-
-
+   
     }
 
     public void Reset()
@@ -96,7 +84,7 @@ public class SwipeControls : MonoBehaviour
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
         isSwipe = false;
-        MoveForward = MoveBackward = MoveLeft = MoveRight = false;
+        MoveLeft = MoveRight = false;
     }
 
     void MovePlayer(Vector2 direction)
@@ -109,16 +97,22 @@ public class SwipeControls : MonoBehaviour
         // if direction.x > direction.y then move left/right (need to rotate here as well)
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            if(direction.x > 0)
-            {
-                // swipe right
-                MoveRight = true;
+            MoveRight = true;
+            //print("i am called");
+            //if(direction.x > 0)
+            //{
+            //    // swipe right
+            //    MoveRight = true;
 
-            }
-            else
-            {
-                MoveLeft = true;
-            }
+            //}
+            //else
+            //{
+            //    MoveLeft = true;
+            //}
+        }
+        else
+        {
+            MoveLeft = true;
         }
         // else move up/don
         //else if(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
