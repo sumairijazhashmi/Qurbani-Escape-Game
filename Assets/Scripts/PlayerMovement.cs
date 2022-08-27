@@ -81,9 +81,10 @@ public class PlayerMovement : MonoBehaviour
        if (controls.MoveRight)
         {
             // rotation if currentRotation != Right_Rotation
-
-            transform.eulerAngles += RIGHT_ROTATION;
-
+            if (PlayerRaycast.canMoveRight)
+            {
+                transform.eulerAngles += RIGHT_ROTATION;
+            }
             //desiredPosition += Vector3.right;
             // move
         }
@@ -91,7 +92,10 @@ public class PlayerMovement : MonoBehaviour
         {
             // rotation if currentRotation != ;Left_Rotation
             //playerTransform.transform.eulerAngles += LEFT_ROTATION;
-            transform.eulerAngles += LEFT_ROTATION;
+            if(PlayerRaycast.canMoveLeft)
+            {
+                transform.eulerAngles += LEFT_ROTATION;
+            }
         }
         // move
         //playerTransform.transform.position = Vector3.MoveTowards(playerTransform.transform.position, desiredPosition, 3f * Time.deltaTime);

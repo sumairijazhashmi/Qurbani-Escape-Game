@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private string Name; // name of the player
+
     private int _lives; // total lives the player has, by default this will be = 3 at the start of each level
     public int Lives
     {
