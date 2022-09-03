@@ -8,9 +8,9 @@ public class SwipeControls : MonoBehaviour
 {
     private Vector2 startPosition = Vector2.zero;
     private Vector2 endPosition;
-    private bool isSwipe;
+    private bool isSwipe, isTouch;
     private float swipeThreshold;
-    public bool MoveLeft, MoveRight;
+    public bool MoveLeft, MoveRight, Jump;
 
     private void Start()
     {
@@ -27,6 +27,7 @@ public class SwipeControls : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             isSwipe = true;
+            isTouch = true;
             startPosition = Input.mousePosition;
         }
         else if(Input.GetMouseButtonUp(0))
@@ -42,6 +43,10 @@ public class SwipeControls : MonoBehaviour
             isSwipe = true;
             MovePlayer(distanceM);
             //Reset();
+        }
+        else if(isTouch == true)
+        {
+            Jump = true;
         }
 
         // TOUCH SWIPE CONTROL
@@ -82,8 +87,8 @@ public class SwipeControls : MonoBehaviour
     {
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
-        isSwipe = false;
-        MoveLeft = MoveRight = false;
+        isTouch = isSwipe = false;
+        Jump = MoveLeft = MoveRight = false;
     }
 
     void MovePlayer(Vector2 direction)

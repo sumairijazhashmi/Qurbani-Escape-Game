@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -408,6 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: cd6a96d1208ec0b498a58d4be7399a47,
         type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: cd6a96d1208ec0b498a58d4be7399a47,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -445,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Genesis___Town_blockout_
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd6a96d1208ec0b498a58d4be7399a47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333631254909853010, guid: cd6a96d1208ec0b498a58d4be7399a47,
         type: 3}
@@ -584,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.41173473, y: -0.40520778, z: 0.21162975, w: 0.7883489}
-  m_LocalPosition: {x: -19.289997, y: 12.75, z: -20.939999}
+  m_LocalPosition: {x: -19.289997, y: 11.864, z: -20.939999}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -825,7 +835,7 @@ GameObject:
   - component: {fileID: 451995191}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1242,7 +1252,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffeb8221988632b48ad7d089793ee96f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: -0.006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffeb8221988632b48ad7d089793ee96f,
         type: 3}
@@ -1328,6 +1338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveLeft: 0
   MoveRight: 0
+  Jump: 0
 --- !u!114 &634318048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,7 +1901,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.50076336, y: 1}
+    m_SensorSize: {x: 0.5625, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1907,7 +1918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013325228}
   m_LocalRotation: {x: 0.41173473, y: -0.40520778, z: 0.21162975, w: 0.7883489}
-  m_LocalPosition: {x: -19.289997, y: 12.75, z: -20.939999}
+  m_LocalPosition: {x: -19.289997, y: 11.864, z: -20.939999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1915,6 +1926,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 33.331, y: -35.46, z: 10.655}
+--- !u!1 &1082511394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7146521406498821007, guid: cd6a96d1208ec0b498a58d4be7399a47,
+    type: 3}
+  m_PrefabInstance: {fileID: 235440915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1082511398
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082511394}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1160608081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6763858364670572316, guid: cd6a96d1208ec0b498a58d4be7399a47,
