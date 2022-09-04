@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (characterController.isGrounded)
             {
-                print("Jumped");
+                //print("Jumped");
                 move.y = jumpHeight;
             }
         }
