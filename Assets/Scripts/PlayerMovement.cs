@@ -68,4 +68,12 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
         controls.Reset();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Enter collision");
+        if (collision.collider.tag == "obstacle")
+        {
+            Time.timeScale = 0;
+        }
+    }
 }
