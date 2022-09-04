@@ -16,23 +16,25 @@ public class PlayerRaycast : MonoBehaviour
         {
             //Debug.Log("Hit on right");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * rightHitInfo.distance, Color.red);
-            canMoveRight = false;
+            if(rightHitInfo.collider.tag == "path")
+			canMoveRight = true;
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 20f, Color.green);
-            canMoveRight = true;
+            canMoveRight = false;
         }
         if (raycastLeftHit)
         {
             //Debug.Log("Hit on left");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * leftHitInfo.distance, Color.blue);
-            canMoveLeft = false;
+            if(leftHitInfo.collider.tag == "path")
+			canMoveLeft = true;
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * 2f, Color.green);
-            canMoveLeft = true;
+            canMoveLeft = false;
         }
     }
 }
