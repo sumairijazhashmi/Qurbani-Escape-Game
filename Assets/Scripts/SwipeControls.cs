@@ -78,7 +78,7 @@ public class SwipeControls : MonoBehaviour
         print("direction.x " + direction.x + " direction.y " + direction.y);
         if (direction.x > 0 || direction.y > 0)
         {
-           if(direction.x <= 100f)
+           if(direction.x <= 150f)
            {
                 // move left
                 Debug.Log("move left");
