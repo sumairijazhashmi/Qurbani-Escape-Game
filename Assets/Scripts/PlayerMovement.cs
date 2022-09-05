@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private string GroundTag = "Ground";
     Vector3 move;
+    
 
     private void Start()
     {
@@ -74,6 +75,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.tag == "obstacle")
         {
             Time.timeScale = 0;
+            player.CurrentState = Player.PlayerState.Dead;
         }
     }
+
+
 }

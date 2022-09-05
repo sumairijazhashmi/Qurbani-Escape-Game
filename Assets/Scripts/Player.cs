@@ -5,6 +5,7 @@ using UnityEngine;
 // player - qurbani janwar class
 public class Player : MonoBehaviour
 {
+
     [SerializeField] private string Name; // name of the player
 
     private int _lives; // total lives the player has, by default this will be = 3 at the start of each level
@@ -30,6 +31,23 @@ public class Player : MonoBehaviour
         set
         {
             _speed = value;
+        }
+    }
+    public enum PlayerState
+    {
+        Dead,
+        Alive
+    };
+    private PlayerState _currentState = PlayerState.Alive;
+    public PlayerState CurrentState
+    {
+        get
+        {
+            return _currentState;
+        }
+        set
+        {
+            _currentState = value;
         }
     }
 
