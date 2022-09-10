@@ -69,15 +69,22 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
         controls.Reset();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Debug.Log("Enter collision");
-        if (collision.collider.tag == "obstacle")
+        if (hit.collider.tag == "obstacle")
         {
             Time.timeScale = 0;
             player.CurrentState = Player.PlayerState.Dead;
         }
     }
-
-
+    //private void (Collision collision)
+    //{
+    //    Debug.Log("Enter collision");
+    //    if (collision.collider.tag == "obstacle")
+    //    {
+    //        Time.timeScale = 0;
+    //        player.CurrentState = Player.PlayerState.Dead;
+    //    }
+    //}
 }
