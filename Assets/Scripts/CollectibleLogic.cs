@@ -8,7 +8,7 @@ public class CollectibleLogic : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("here");
+            //Debug.Log("here");
             Destroy(gameObject);
         }
     }

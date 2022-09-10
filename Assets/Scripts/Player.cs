@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
         }
     }
     [SerializeField] private string Type; // can be from [goat, sheep, dumba, cow, bull, camel, etc.]
-    [SerializeField] private int _speed; // speed of the animal, different type of animal has different speed
-    public int Speed
+    [SerializeField] private float _speed; // speed of the animal, different type of animal has different speed
+    public float Speed
     {
         get
         {

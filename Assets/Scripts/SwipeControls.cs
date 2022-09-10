@@ -75,25 +75,25 @@ public class SwipeControls : MonoBehaviour
     {
         // if greater than threshold, find direction in which moved
         // if direction.x > direction.y then move left/right (need to rotate here as well)
-        print("direction.x " + direction.x + " direction.y " + direction.y);
+        //print("direction.x " + direction.x + " direction.y " + direction.y);
         if (direction.x > 0 || direction.y > 0)
         {
            if(direction.x <= 150f)
            {
                 // move left
-                Debug.Log("move left");
+                //Debug.Log("move left");
                 MoveLeft = true;
            }
            else if(direction.x > direction.y)
            {
                 // move right
-                Debug.Log("move right");
+                //Debug.Log("move right");
                 MoveRight = true;
             }
             else if(direction.y > direction.x)
             {
                 // jump
-                Debug.Log("jump");
+                //Debug.Log("jump");
                 MoveForward = true;
             }
             //if (direction.x > direction.y )

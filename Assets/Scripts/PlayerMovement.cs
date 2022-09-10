@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("Enter collision");
+        //Debug.Log("Enter collision");
         if (hit.collider.tag == "obstacle")
         {
             Time.timeScale = 0;
