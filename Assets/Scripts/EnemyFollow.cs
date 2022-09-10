@@ -4,7 +4,8 @@ using UnityEngine.AI;
 public class EnemyFollow : MonoBehaviour
 {
     private NavMeshAgent navAgent;
-    public GameObject Player;
+    [SerializeField] float speed;
+    [SerializeField] public GameObject Player;
     public float radius;
 
     [Range(0, 360)]
@@ -19,7 +20,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        navAgent.speed = 1;
+        navAgent.speed = speed;
         radius = 50;
         angle = 60;
         //this.GetComponent<Renderer>().enabled = true;
