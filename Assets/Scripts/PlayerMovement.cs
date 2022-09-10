@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private string GroundTag = "Ground";
     Vector3 move;
+    private float turnSpeed = 0.1f;
     
 
     private void Start()
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 move.y = jumpHeight;
             }
         }
+        Vector3 targetRotation = transform.rotation.eulerAngles;
         if (controls.MoveRight)
         {
             if (PlayerRaycast.canMoveRight)
