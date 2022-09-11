@@ -15,13 +15,18 @@ public class EnemyFollow : MonoBehaviour
     public LayerMask obstacleMask;
 
     public bool playerVisible;
-
+    public bool attach2npc = false;
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        if(gameObject.tag == "npc" && attach2npc == false)
+        {
+            return;
+        }
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        
         navAgent.speed = speed;
         radius = 50;
         angle = 60;
@@ -32,20 +37,19 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            navAgent.destination = Player.transform.position;
-            
-    }
-    private void FixedUpdate()
-    {
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, forward, out hit, 4f))
+        if(gameObject.tag == "npc" && attach2npc == true)
         {
-            if(hit.collider.tag == "obstacle")
-            {
-                animator.SetBool("jump", true);
-            }
+            Start();
         }
-        // stop animation over here once it is completed
+
+        if (gameObject.tag == "npc" && attach2npc == false)
+        {
+            return;
+        }
+        navAgent.destination = Player.transform.position;
+        print(Player.transform.position);
+        print(navAgent.destination);
+
+         
     }
 }

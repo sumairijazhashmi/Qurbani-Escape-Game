@@ -54,7 +54,7 @@ public class SwipeControls : MonoBehaviour
                 endPosition = currentTouch.position;
                 float disX = Mathf.Abs(startPosition.x - endPosition.x);
                 float disY = Mathf.Abs(startPosition.y - endPosition.y);
-                print("startPosition.x: " + startPosition.x + " ; endPosition.x: " + endPosition.x + "; startPosition.y: " + startPosition.y + " ; endPosition.y: " + endPosition.y);
+                //print("startPosition.x: " + startPosition.x + " ; endPosition.x: " + endPosition.x + "; startPosition.y: " + startPosition.y + " ; endPosition.y: " + endPosition.y);
 
 
                 direction.x = disX;

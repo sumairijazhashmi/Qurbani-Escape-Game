@@ -10,6 +10,7 @@ TagManager:
   - obstacle
   - collectible
   - npc
+  - npc_area
   layers:
   - Default
   - TransparentFX
