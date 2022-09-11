@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
             player.CurrentState = Player.PlayerState.Dead;
         }
+        if(hit.collider.tag == "Finish")
+        {
+            Time.timeScale = 0;
+            player.CurrentState = Player.PlayerState.Survived;
+        }
     }
     //private void (Collision collision)
     //{

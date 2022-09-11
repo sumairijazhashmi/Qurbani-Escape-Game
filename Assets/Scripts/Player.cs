@@ -36,7 +36,8 @@ public class Player : MonoBehaviour
     public enum PlayerState
     {
         Dead,
-        Alive
+        Alive,
+        Survived
     };
     private PlayerState _currentState = PlayerState.Alive;
     public PlayerState CurrentState
