@@ -47,8 +47,8 @@ public class EnemyFollow : MonoBehaviour
             return;
         }
         navAgent.destination = Player.transform.position;
-        print(Player.transform.position);
-        print(navAgent.destination);
+        //print(Player.transform.position);
+        //print(navAgent.destination);
 
          
     }
