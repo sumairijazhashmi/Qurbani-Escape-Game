@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
 
     static bool musicON;
     static bool soundON;
-
+    
     [SerializeField] Transform pauseMenu;
     [SerializeField] Transform mainMenu;
     [SerializeField] Transform settingsMenu;
@@ -32,14 +32,15 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
         // automatically look for game manager in the scene
         gameManager = FindObjectOfType<GameManager>();
         player = FindObjectOfType<Player>();
         state = UIState.MainMenu;
-
         if(restarted || movedToNextLevel)
         {
             state = UIState.InGame;
+            DisableMenus();
             restarted = false;
             movedToNextLevel = false;
         }
@@ -49,58 +50,48 @@ public class UIManager : MonoBehaviour
     {
         if (player.CurrentState == Player.PlayerState.Dead)
         {
-            state = UIState.PauseMenu;
+            state = UIState.GameOverScreen;
         }
         if(player.CurrentState == Player.PlayerState.Survived)
         {
             state = UIState.NextLevelScreen;
         }
+        
+        
         UpdateGameState();
         UpdateMenusState();
     }
 
     private void UpdateMenusState()
     {
-        switch (state)
-        {
-            case UIState.MainMenu:
-                pauseMenu.gameObject.SetActive(false);
-                settingsMenu.gameObject.SetActive(false);
-                leaderBoard.gameObject.SetActive(false);
-                NextLevelScreen.gameObject.SetActive(false);
-                mainMenu.gameObject.SetActive(true);
-                
-                break;
-            case UIState.PauseMenu:
-                pauseMenu.gameObject.SetActive(true);
-                settingsMenu.gameObject.SetActive(false);
-                leaderBoard.gameObject.SetActive(false);
-                NextLevelScreen.gameObject.SetActive(false);
-                mainMenu.gameObject.SetActive(false);
-                break;
-            case UIState.Settings:
-                pauseMenu.gameObject.SetActive(false);
-                settingsMenu.gameObject.SetActive(true);
-                leaderBoard.gameObject.SetActive(false);
-                NextLevelScreen.gameObject.SetActive(false);
-                mainMenu.gameObject.SetActive(false);
-                break;
-            case UIState.LeaderBoard:
-                pauseMenu.gameObject.SetActive(false);
-                settingsMenu.gameObject.SetActive(false);
-                leaderBoard.gameObject.SetActive(true);
-                NextLevelScreen.gameObject.SetActive(false);
-                mainMenu.gameObject.SetActive(false);
-                break;
-            case UIState.NextLevelScreen:
-                pauseMenu.gameObject.SetActive(false);
-                settingsMenu.gameObject.SetActive(false);
-                leaderBoard.gameObject.SetActive(false);
-                NextLevelScreen.gameObject.SetActive(true);
-                mainMenu.gameObject.SetActive(false);
-                break;
-            case UIState.GameOverScreen:
-                break;
+        DisableMenus();
+        if(state != UIState.InGame) {
+            transform.GetChild(0).gameObject.SetActive(true);
+            switch (state)
+            {
+                case UIState.MainMenu:
+                    mainMenu.gameObject.SetActive(true);
+                    break;
+                case UIState.PauseMenu:
+                    pauseMenu.gameObject.SetActive(true);
+                    break;
+                case UIState.Settings:
+                    settingsMenu.gameObject.SetActive(true);
+                    break;
+                case UIState.LeaderBoard:
+                    leaderBoard.gameObject.SetActive(true);
+                    break;
+                case UIState.NextLevelScreen:
+                    NextLevelScreen.gameObject.SetActive(true);
+                    print(state);
+                    break;
+                case UIState.GameOverScreen:
+                    gameOverScreen.gameObject.SetActive(true);
+                    break;
+                case UIState.GameWinScreen:
+                    gameWinScreen.gameObject.SetActive(true);
+                    break;
+            }
         }
     }
     private void UpdateGameState()
@@ -124,12 +115,17 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         DisableMenus();
+        if (state == UIState.MainMenu) {
+            movedToNextLevel = true;
+            SceneManager.LoadScene(0);
+        }
         state = UIState.InGame;
     }
 
     public void ResumeGame()
     {
-        pauseMenu.gameObject.SetActive(false);
+        state = UIState.InGame;
+        DisableMenus();
         Time.timeScale = 1;
     }
 

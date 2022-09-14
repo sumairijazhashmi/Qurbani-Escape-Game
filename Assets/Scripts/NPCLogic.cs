@@ -41,7 +41,7 @@ public class NPCLogic : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f) || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, 3f) || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 3f) || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 3f) || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 3f) || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 3f))
         {
 
-            print("here");
+            //print("here");
 
             if (hit.collider.tag == "obstacle")
             {

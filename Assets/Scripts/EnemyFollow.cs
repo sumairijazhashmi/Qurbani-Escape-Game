@@ -8,11 +8,6 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] public GameObject Player;
     public float radius;
 
-    [Range(0, 360)]
-    public float angle;
-
-    public LayerMask playerMask;
-    public LayerMask obstacleMask;
 
     public bool playerVisible;
     public bool attach2npc = false;
@@ -29,8 +24,6 @@ public class EnemyFollow : MonoBehaviour
         
         navAgent.speed = speed;
         radius = 50;
-        angle = 60;
-        //this.GetComponent<Renderer>().enabled = true;
         navAgent.enabled = true;
     }
 
@@ -47,9 +40,7 @@ public class EnemyFollow : MonoBehaviour
             return;
         }
         navAgent.destination = Player.transform.position;
-        //print(Player.transform.position);
-        //print(navAgent.destination);
-
-         
+        
+        navAgent.Raycast(Vector3.forward, out NavMeshHit navHit);
     }
 }
