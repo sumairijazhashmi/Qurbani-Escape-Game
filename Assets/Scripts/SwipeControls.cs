@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class SwipeControls : MonoBehaviour
 {
 
-	private float MIN_SWIPE_DISTANCE = (20/100) * Screen.width;
+	private float swipeThreshold = (20/100) * Screen.width;
 
 	public bool MoveRight = false;
 	public bool MoveLeft = false;
@@ -33,25 +33,26 @@ public class SwipeControls : MonoBehaviour
 
 				Vector2 swipeDirection = new Vector2(endPosition.x - startPosition.x, endPosition.y - startPosition.y);
 
-				if (swipeDirection.magnitude < MIN_SWIPE_DISTANCE) // Too short swipe
-					return;
+				if (swipeDirection.magnitude >= swipeThreshold)
+				{
 
-				if (Mathf.Abs(swipeDirection.x) > Mathf.Abs(swipeDirection.y))
-				{ 
-					if (swipeDirection.x > 0)
+					if (Mathf.Abs(swipeDirection.x) > Mathf.Abs(swipeDirection.y))
 					{
-						MoveRight = true;
+						if (swipeDirection.x > 0)
+						{
+							MoveRight = true;
+						}
+						else
+						{
+							MoveLeft = true;
+						}
 					}
 					else
 					{
-						MoveLeft = true;
-					}
-				}
-				else
-				{ 
-					if (swipeDirection.y > 0)
-					{
-						Jump = true;
+						if (swipeDirection.y > 0)
+						{
+							Jump = true;
+						}
 					}
 				}
 			}
