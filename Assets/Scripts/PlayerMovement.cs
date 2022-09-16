@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
 
-        if (controls.swipedUp)
+        if (controls.Jump)
         {
             if (characterController.isGrounded)
             {
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         Vector3 targetRotation = transform.rotation.eulerAngles;
-        if (controls.swipedRight)
+        if (controls.MoveRight)
         {
             if (PlayerRaycast.canMoveRight)
             {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
                 move = transform.forward * player.Speed;
             }
         }
-        if (controls.swipedLeft)
+        if (controls.MoveLeft)
         {
             if(PlayerRaycast.canMoveLeft)
             {
