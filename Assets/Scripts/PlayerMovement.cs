@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
 
-        if (controls.MoveForward)
+        if (controls.swipedUp)
         {
             if (characterController.isGrounded)
             {
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         Vector3 targetRotation = transform.rotation.eulerAngles;
-        if (controls.MoveRight)
+        if (controls.swipedRight)
         {
             if (PlayerRaycast.canMoveRight)
             {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
                 move = transform.forward * player.Speed;
             }
         }
-        if (controls.MoveLeft)
+        if (controls.swipedLeft)
         {
             if(PlayerRaycast.canMoveLeft)
             {
@@ -71,17 +71,16 @@ public class PlayerMovement : MonoBehaviour
         }
         move.y += g * Time.deltaTime;
         characterController.Move(move * Time.deltaTime);
-        controls.Reset();
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log("Enter collision");
-        if (hit.collider.tag == "obstacle")
+        if (hit.collider.CompareTag("obstacle"))
         {
             Time.timeScale = 0;
             player.CurrentState = Player.PlayerState.Dead;
         }
-        if(hit.collider.tag == "Finish")
+        if(hit.collider.CompareTag("Finish"))
         {
             Time.timeScale = 0;
             player.CurrentState = Player.PlayerState.Survived;
