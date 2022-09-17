@@ -5,8 +5,9 @@ public class EnemyFollow : MonoBehaviour
 {
     private NavMeshAgent navAgent;
     [SerializeField] float speed;
-    [SerializeField] public GameObject Player;
+    [SerializeField] public Player Player;
     public float radius;
+
 
 
     public bool playerVisible;
@@ -42,5 +43,13 @@ public class EnemyFollow : MonoBehaviour
         navAgent.destination = Player.transform.position;
         
         navAgent.Raycast(Vector3.forward, out NavMeshHit navHit);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player") && gameObject.tag == "Enemy")
+        {
+            Player.CurrentState = Player.PlayerState.Dead;
+        }
     }
 }
