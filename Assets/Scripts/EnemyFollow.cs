@@ -9,6 +9,7 @@ public class EnemyFollow : MonoBehaviour
     public float radius;
 
 
+
     public bool playerVisible;
     public bool attach2npc = false;
     Animator animator;
@@ -51,5 +52,4 @@ public class EnemyFollow : MonoBehaviour
             Player.CurrentState = Player.PlayerState.Dead;
         }
     }
-    // Moving to main lol - ignore this comment
 }
