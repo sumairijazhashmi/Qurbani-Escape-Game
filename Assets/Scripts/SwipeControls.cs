@@ -57,6 +57,7 @@ public class SwipeControls : MonoBehaviour
 		}
 	}
 }
+}
 
 //using System.Collections;
 //using System.Collections.Generic;
