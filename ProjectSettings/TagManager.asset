@@ -11,6 +11,7 @@ TagManager:
   - collectible
   - npc
   - npc_area
+  - tutorial_right
   layers:
   - Default
   - TransparentFX
