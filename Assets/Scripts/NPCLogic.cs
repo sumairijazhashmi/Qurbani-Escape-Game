@@ -18,16 +18,19 @@ public class NPCLogic : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
+    void PlayArrayBakra() {
+        transform.GetComponent<AudioSource>().Play();
+        print("Bakraaa");
+    }
     private void Update()
     {
         animator.SetBool("obstacle", false);
-
-
         // try to grab bakri
         if (Mathf.Abs(Vector3.Distance(transform.position, player.transform.position)) <= 2.0f)
         {
             animator.SetBool("playerCross", true);
+            PlayArrayBakra();
+
         }
 
         // run after bakri

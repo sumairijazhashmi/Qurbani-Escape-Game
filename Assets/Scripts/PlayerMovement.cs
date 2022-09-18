@@ -38,11 +38,11 @@ public class PlayerMovement : MonoBehaviour
             return new Vector3(0, 270f, 0);
         }
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+
+
 
         if (controls.Jump)
         {
