@@ -11,7 +11,7 @@ public class SwipeControls : MonoBehaviour
 	public bool MoveRight = false;
 	public bool MoveLeft = false;
 	public bool Jump = false;
-
+	public bool debugWithArrowKeys = true;
 	Vector2 startPosition;
 
 	public void Update()
@@ -53,10 +53,16 @@ public class SwipeControls : MonoBehaviour
 							Jump = true;
 						}
 					}
+				}
 			}
 		}
+		if (debugWithArrowKeys)
+		{
+			Jump = Jump || Input.GetKeyDown(KeyCode.UpArrow);
+			MoveRight = MoveRight || Input.GetKeyDown(KeyCode.RightArrow);
+			MoveLeft = MoveLeft || Input.GetKeyDown(KeyCode.LeftArrow);
+		}
 	}
-}
 }
 
 //using System.Collections;
