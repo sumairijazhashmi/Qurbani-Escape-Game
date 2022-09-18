@@ -30,7 +30,7 @@ public class SwipeControls : MonoBehaviour
 
 				Vector2 endPosition = new Vector2(currentTouch.position.x / (float)Screen.width, currentTouch.position.y / (float)Screen.width);
 
-				Vector2 swipeDirection = new Vector2(endPosition.x - startPosition.x, endPosition.y - startPosition.y);
+				Vector2 swipeDirection = endPosition - startPosition;
 
 				if (swipeDirection.magnitude >= swipeThreshold) 
 				{

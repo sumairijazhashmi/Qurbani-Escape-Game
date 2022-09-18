@@ -45,11 +45,5 @@ public class EnemyFollow : MonoBehaviour
         navAgent.Raycast(Vector3.forward, out NavMeshHit navHit);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player") && gameObject.tag == "Enemy")
-        {
-            Player.CurrentState = Player.PlayerState.Dead;
-        }
-    }
+
 }
