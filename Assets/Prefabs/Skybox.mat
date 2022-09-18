@@ -155,7 +155,7 @@ Material:
     - _mult: 1
     - _pwer: 1
     m_Colors:
-    - _Bottom: {r: 0.74158955, g: 0.9528302, b: 0.9313375, a: 0}
+    - _Bottom: {r: 0.88908017, g: 0.9529412, b: 0.7411765, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
@@ -167,5 +167,5 @@ Material:
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.5377358, g: 0.49968848, b: 0.49968848, a: 0.5}
-    - _Top: {r: 0.7955233, g: 0.9528302, b: 0.73260057, a: 0}
+    - _Top: {r: 0.73333335, g: 0.9529412, b: 0.9462146, a: 0}
   m_BuildTextureStacks: []
