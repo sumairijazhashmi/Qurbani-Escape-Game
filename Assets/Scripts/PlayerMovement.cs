@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
             if (characterController.isGrounded)
             {
                 //print("Jumped");
+                transform.GetChild(2).GetComponent<AudioSource>().Play();
                 move.y = jumpHeight;
             }
         }

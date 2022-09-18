@@ -52,4 +52,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void PlayStart() {
+        transform.GetComponent<AudioSource>().Play();
+    }
+
 }

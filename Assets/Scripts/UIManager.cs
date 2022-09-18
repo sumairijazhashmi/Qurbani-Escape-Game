@@ -118,6 +118,9 @@ public class UIManager : MonoBehaviour
         if (state == UIState.MainMenu) {
             movedToNextLevel = true;
             SceneManager.LoadScene(0);
+            var tut = FindObjectOfType<Tutorial>();
+            player.PlayStart();
+            tut.Play();
         }
         state = UIState.InGame;
     }
