@@ -95,4 +95,12 @@ public class PlayerMovement : MonoBehaviour
     //        player.CurrentState = Player.PlayerState.Dead;
     //    }
     //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            player.CurrentState = Player.PlayerState.Dead;
+        }
+    }
 }
